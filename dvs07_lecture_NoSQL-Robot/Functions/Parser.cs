@@ -14,8 +14,10 @@ namespace dvs07_lecture_NoSQL_Robot.Functions
     {
         public static Robot ParseRobotData()
         {
-            var csvLineReader = new StreamReader($@"D:\GitHub\dvs07_lecture_NoSQL-Robot\dvs07_lecture_NoSQL-Robot\Files\RobotValues.csv");
-
+            //WinOS
+            //var csvLineReader = new StreamReader($@"D:\GitHub\dvs07_lecture_NoSQL-Robot\dvs07_lecture_NoSQL-Robot\Files\RobotValues.csv");
+            //MacOS
+            var csvLineReader = new StreamReader($@"/Users/surkus/GitHub/dvs07_lecture_NoSQL-Robot/dvs07_lecture_NoSQL-Robot/Files/RobotValues.csv");
             var robotArm = new Arm();
             var robotLeg = new Leg();
             var robotTorso = new Torso();
@@ -45,7 +47,6 @@ namespace dvs07_lecture_NoSQL_Robot.Functions
                 robot.Leg.Add(robotLeg);
                 robot.Torso = robotTorso;
 
-                string val = (int)Enum.Parse(HeadType);
                 robotHead.HeadType = Enum.TryParse($"{tempCache[8]}", out HeadType head).ToString();
 
                 robot.Head = robotHead;
